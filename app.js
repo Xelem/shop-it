@@ -37,5 +37,7 @@ app.use(mongoSanitize());
 // ROUTES
 app.use('/api/products', productRouter);
 app.use('/api/auth', userRouter);
+app.use('/api/seller', productRouter);
+app.use('/api/buyer', userRouter);
 
 module.exports = app;
