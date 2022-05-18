@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const compression = require('compression');
 const morgan = require('morgan');
+const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -39,6 +40,9 @@ app.use(cookieParser());
 
 // Data sanitizataion against NoSQL query injections
 app.use(mongoSanitize());
+
+// Data sanitization against XSS
+app.use(xss());
 
 // Limit requests from same API
 const limiter = rateLimit({
