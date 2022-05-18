@@ -4,6 +4,7 @@ const catalogSchema = new mongoose.Schema({
   seller: {
     type: mongoose.Schema.ObjectId,
     required: [true, 'A catalog must belong to a seller'],
+    unique: true,
   },
   products: [
     new mongoose.Schema({
